@@ -1,123 +1,92 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import "./App.css";
+import NavBar from "./component/navBar";
+import Footer from "./component/Footer";
+import About from "./component/About";
+import Projects from "./component/Projects";
+import Skills from "./component/Skills";
+// import Contact from "./component/Contact"
+import Hero from "./component/Hero";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+
+const darkTheme = createTheme({
+  palette: {
+    mode: "dark",
+    primary: {
+      main: "#ff5252",
+    },
+  },
+});
+// use the default theme customasation to switch mode
+// const primary = {
+//   main: "#1976d2",
+//   light: "#42a5f5",
+//   dark: "#1565c0",
+//   contrastText: "#fff",
+// };
+
+//////////////////////////////////::
+
+// import { createTheme, ThemeProvider } from '@mui/material/styles';
+// import { lime, purple } from '@mui/material/colors';
+// import Button from '@mui/material/Button';
+
+// const theme = createTheme({
+//   palette: {
+//     primary: lime,
+//     secondary: purple,
+//   },
+// });
+
+// export default function UsingColorObject() {
+//   return (
+//     <ThemeProvider theme={theme}>
+//       <Button variant="contained">Primary</Button>
+//       <Button variant="contained" color="secondary" sx={{ ml: 2 }}>
+//         Secondary
+//       </Button>
+//     </ThemeProvider>
+//   );
+// }
+
+////////////////////////////////:::::
+
+// import { createTheme } from "@mui/material/styles";
+
+// const theme = createTheme({
+//   palette: {
+//     primary: {
+//       main: "#FF5733",
+//       // light: will be calculated from palette.primary.main,
+//       // dark: will be calculated from palette.primary.main,
+//       // contrastText: will be calculated to contrast with palette.primary.main
+//     },
+//     secondary: {
+//       main: "#E0C2FF",
+//       light: "#F5EBFF",
+//       // dark: will be calculated from palette.secondary.main,
+//       contrastText: "#47008F",
+//     },
+//   },
+// });
+
+///////////////////////////////////////::
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <p></p>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+    <div className="items-center ">
+      <ThemeProvider theme={darkTheme}>
+        <CssBaseline />
+        <NavBar />
+        <Hero />
+        <About />
+        <Projects />
+        <Skills />
+        {/* <Contact/> */}
+        <Footer />
+      </ThemeProvider>
+    </div>
+  );
 }
 
-export default App
+export default App;
